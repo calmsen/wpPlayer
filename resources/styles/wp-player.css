@@ -1,0 +1,1465 @@
+/* player main start */
+.wp-player-main{
+    position: absolute;
+    top: -3000px;
+}
+/* player main end */
+.mejs-wp.mejs-container {
+    background: none repeat scroll 0 0 transparent;
+    font-family: Helvetica,Arial;
+    position: relative;
+    text-align: left;
+    vertical-align: top;
+}
+
+/* Start: CONTROL BAR */
+.mejs-wp .mejs-controls {
+    float:left;
+    position: relative;
+    background: none;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    bottom: 0;
+    left: 0;
+    /*
+    width: 526px;
+    height: 51px;
+    background: url(/resources/images/music/player/wp-player.png) 0 -67px;
+    */
+    
+    width: 530px;
+    height: 42px;
+    background: url(/resources/images/music/bg.png) 0 -123px;
+    box-shadow: -1px 1px 10px #999898;
+}
+.mejs-wp  .mejs-controls-right{
+    display:none;
+    float:left;
+    width:5px;
+    height:51px;
+    background: url(/resources/images/music/player/wp-player.png) -559px -67px;
+}
+.mejs-wp .mejs-controls div {/* для сброса */
+    list-style-type: none;
+    background-image: none;
+    display: block;
+    float: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    height: auto;
+    font-size: inherit;
+    line-height: inherit;
+    background: 0;
+    font-family: inherit;
+    border: 0;
+}
+.mejs-wp .mejs-controls > div {
+    list-style-type: none;
+    background-image: none;
+    display: block;
+    float: left;
+    margin: 5px 0 0 5px;
+    padding: 0;
+    width: 33px;
+    height: 33px;
+    font-size: 11px;
+    line-height: 11px;
+    background: 0;
+    font-family: Helvetica, Arial;
+    border: 0;
+}
+.mejs-wp .mejs-controls .mejs-button:first-child{
+    margin-left:7px;
+}
+.mejs-wp .mejs-controls .mejs-button button {
+    cursor: pointer;
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    height: 33px;
+    width: 33px;
+    border: 0;
+    background: transparent url(/resources/images/music/player/wp-player.png) no-repeat;
+}
+
+/* :focus for accessibility */
+.mejs-wp .mejs-controls .mejs-button button:focus {
+    outline: solid 0px yellow;
+}
+
+/* End: CONTROL BAR */
+
+/* Start: Time (current / duration) */
+.mejs-wp .mejs-controls .mejs-time {
+    float:right;
+    color: #000;
+    display: block;
+    height: 14px;
+    width: 31px;
+    overflow: hidden;
+    text-align: center;
+    padding: 0;
+    margin-left:10px;
+}
+.mejs-wp .mejs-controls .mejs-time span {
+    font-size: 11px;
+    color: #000;
+    line-height: 12px;
+    display: block;
+    float: right;
+    margin: 0;
+    width: auto;
+}
+/* End: Time (current / duration) */
+
+/* Start: Play/pause */
+.mejs-wp .mejs-controls .mejs-play button {
+    background-position:0 0;
+}
+.mejs-wp .mejs-controls .mejs-play-press button {
+    background-position:-34px 0;
+}
+.mejs-wp .mejs-controls .mejs-pause button {
+    background-position:-68px 0;
+}
+.mejs-wp .mejs-controls .mejs-pause-press button {
+    background-position:-102px 0;
+}
+/* End: Play/pause */
+ 
+
+/* Start: Progress bar */
+.mejs-wp .mejs-controls div.mejs-time-rail {
+    width: 293px;
+    padding-top: 0;
+}
+.mejs-wp .mejs-controls .mejs-time-rail span {
+    display: block;
+    position: absolute;
+    height: 5px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    cursor: pointer;
+}
+.mejs-wp .mejs-controls .mejs-time-rail .mejs-time-total {
+    width: 100%;
+    position: relative;
+    margin: 5px 0 0 0;
+    background: #C0C4AA;
+}
+.mejs-wp .mejs-controls .mejs-time-rail .mejs-time-loaded {
+    position:absolute;
+    top: 1px;
+    left: 1px;
+    background: #DEE3C5;
+    width: 0;
+    margin:0 -2px;
+    height:3px;
+}
+.mejs-wp .mejs-controls .mejs-time-rail .mejs-time-current {
+    width: 0;
+    background: #636359;
+}
+
+.mejs-wp .mejs-controls .mejs-time-rail .mejs-time-handle {
+    display: block;
+    position: absolute;
+    margin: 0;
+    width: 7px;
+    height: 7px;
+    background: transparent url(/resources/images/music/player/wp-player.png) -400px -16px no-repeat;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    cursor: pointer;
+    border: 0;
+    top: -1px;
+    text-align: center;
+}
+
+.mejs-wp .mejs-controls .mejs-time-rail .mejs-time-float {
+    position: absolute;
+    display: none;
+    background: #eee;
+    width: 36px;
+    height: 17px;
+    border: solid 1px #333;
+    top: -26px;
+    margin-left: -18px;
+    text-align: center;
+    color: #111;
+}
+
+.mejs-wp .mejs-controls .mejs-time-rail .mejs-time-float-current {
+    margin: 2px;
+    width: 30px;
+    display: block;
+    text-align: center;
+    left: 0;
+}
+.mejs-wp .mejs-controls .mejs-time-rail .mejs-time-float-corner {
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    line-height: 0;
+    border: solid 5px #eee;
+    border-color: #eee transparent transparent transparent;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    top: 15px;
+    left: 13px;
+
+}
+/* Start: Mute/Volume */
+
+/* horizontal version */
+.mejs-wp .mejs-controls div.mejs-horizontal-volume-slider {
+    height: 16px;
+    width: 39px;
+    position: relative;
+    top: 8px;
+    margin-left:10px;
+}
+
+.mejs-wp .mejs-controls .mejs-horizontal-volume-slider .mejs-horizontal-volume-total {
+    position: absolute;
+    left: 0;
+    top: 0px;
+    width: 39px;
+    height: 16px;
+    margin: 0;
+    padding: 0;
+    font-size: 1px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;    
+    background: transparent url(/resources/images/music/player/wp-player.png) -340px -16px no-repeat;
+}
+
+.mejs-wp .mejs-controls .mejs-horizontal-volume-slider .mejs-horizontal-volume-current {
+    position: absolute;
+    left: 0;
+    top: 0px;
+    width: 39px;
+    height: 16px;
+    margin: 0;
+    padding: 0;
+    font-size: 1px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    background: transparent url(/resources/images/music/player/wp-player.png) -340px 0 no-repeat;
+
+}
+
+
+.mejs-wp .mejs-controls .mejs-horizontal-volume-slider .mejs-horizontal-volume-handle {
+    display: none;
+}
+
+/* End: Mute/Volume */
+
+/* Start: Prev */
+.mejs-wp .mejs-controls .mejs-prev-button button {
+    background-position:-136px 0;
+}
+.mejs-wp .mejs-controls .mejs-prev-press button,
+.mejs-wp .mejs-controls .mejs-prev-disabled button {
+    background-position:-170px 0;
+}
+/* End: Prev */
+/* Start: Play/pause */
+.mejs-wp .mejs-controls .mejs-play button {
+    background-position:0 0;
+}
+.mejs-wp .mejs-controls .mejs-play-press button,
+.mejs-wp .mejs-controls .mejs-play-disabled button{
+    background-position:-34px 0;
+}
+.mejs-wp .mejs-controls .mejs-pause button {
+    background-position:-68px 0;
+}
+.mejs-wp .mejs-controls .mejs-pause-press button {
+    background-position:-102px 0;
+}
+/* End: Play/pause */
+
+/* Start: Next */
+.mejs-wp .mejs-controls .mejs-next-button button {
+    background-position:-204px 0;
+}
+.mejs-wp .mejs-controls .mejs-next-press button,
+.mejs-wp .mejs-controls .mejs-next-disabled button {
+    background-position:-238px 0;
+}
+/* End: Next */
+/* Start: Playlist */
+.mejs-wp .mejs-controls .mejs-playlist-button{
+margin-left:10px;
+}
+.mejs-wp .mejs-controls .mejs-playlist-button button {
+    background-position:-272px 0;
+}
+.mejs-wp .mejs-controls .mejs-playlist-press button {
+    background-position:-306px 0;
+}
+/* End: Playlist */
+/* Start: Loop */
+.mejs-wp .mejs-controls .mejs-loop-button{
+    float:right;
+    width:15px;
+    height:14px;
+    position:relative;
+    top: -2px;
+}
+.mejs-wp .mejs-controls .mejs-loop-button button{
+    width:15px;
+    height:14px;
+}
+.mejs-wp .mejs-controls .mejs-loop-off button{
+    background-position: -400px 0;
+}
+.mejs-wp .mejs-controls .mejs-loop-on button {
+    background-position: -400px 0;
+}
+/* End: Loop */
+/* Start: Title */
+.mejs-wp .mejs-controls .mejs-title {
+    width: 200px;
+    height: 11px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+/* End: Title */
+.mejs-wp .mejs-controls .mejs-info{
+    width:305px;
+    margin-left:10px;
+    height:21px;
+}
+.mejs-wp .mejs-controls .mejs-info > div{
+    float:left;
+    background: transparent url(/resources/images/music/player/wp-player.png) no-repeat;
+}
+.mejs-wp .mejs-controls .mejs-info .mejs-info-main{
+    width:293px;
+    height:100%;
+    background-position:0 -34px;
+    padding:6px 1px 6px 6px;
+}
+.mejs-wp .mejs-controls .mejs-info .mejs-info-main *{
+    display:;
+}
+.mejs-wp .mejs-controls .mejs-info .mejs-info-right{
+    height:100%;
+    background-position:-396px -34px;
+    padding:6px 5px 6px 0;
+}
+/* MINI PLAYER */
+.mejs-wp.mini .mejs-controls .mejs-prev-button,
+.mejs-wp.mini .mejs-controls .mejs-next-button, 
+.mejs-wp.mini .mejs-controls .mejs-playlist-button,
+.mejs-wp.mini .mejs-controls div.mejs-horizontal-volume-slider{
+    display: none;
+}
+.mejs-wp.mini .mejs-controls{
+    width: 250px;
+}
+.mejs-wp.mini .mejs-controls .mejs-title {
+    width:130px;
+}
+.mejs-wp.mini .mejs-controls .mejs-info{
+    width:202px;
+    margin-left: 5px;
+}
+.mejs-wp.mini .mejs-controls .mejs-info .mejs-info-main{
+    width: 190px;
+}
+.mejs-wp.mini .mejs-controls div.mejs-time-rail {
+    width: 190px;
+}
+/* playlist */
+.mejs-wp .mejs-playlists{
+    position: absolute;
+    top: -239px;
+    left: 17px;
+    z-index: 3001;
+    display: none;
+}
+.mejs-wp .mejs-playlists * {
+    font-family: Helvetica,Arial,sans-serif;
+    font-size: 12px;
+    line-height: 16px;
+}
+.mejs-wp.mejs-open-playlist .mejs-playlists{
+    display: block;
+}
+.mejs-wp .mejs-playlists-cnt{
+    width: 241px;
+    height: 230px;
+    padding: 5px 5px 7px 5px;
+    margin: 0;
+    background:url(/resources/images/music/player/bg-playlist.png);
+}
+.mejs-wp .mejs-playlists-triangle{
+    /*background: none repeat scroll 0 0 #6E6E6E;*/
+    height: 5px;
+    margin: 0 0 0 108.5px;
+    width: 33px;
+    
+}
+.mejs-wp .mejs-playlists-top{
+    height: 32px;
+    background: #D1D0D0;
+}
+.mejs-wp .mejs-playlists-playlist_title{
+    float: left;
+    width: 121px;
+    height: 100%;
+}
+.mejs-wp .mejs-playlists-playlist_edit{
+    float: left;
+    width: 120px;
+    height: 100%;
+}
+.mejs-wp .mejs-playlists-self-cnt{
+}
+.mejs-wp .mejs-playlist-playlist_tracks-cnt{}
+.mejs-wp .mejs-playlists-content{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: 198px;
+    overflow-y: hidden;
+}
+.mejs-wp .mejs-playlists-content.ui-sortable{
+    cursor: move;
+}
+.mejs-wp .mejs-playlists-content.ui-sortable a{
+    cursor: default;
+}
+.mejs-wp .mejs-playlists-content *{
+    color: #fff;
+    line-height: 20px;
+    text-shadow: #818181 1px 1px 1px;
+}
+.mejs-wp .mejs-playlists-playlist_tracks-itm{
+    height: 21px;
+    margin: 1px 0 0 0;
+    padding: 0 5px 0 5px;
+    background: #A4A3A3;
+}
+.mejs-wp .edit .mejs-playlists-playlist_tracks-itm{
+    /*padding: 0 2px 0 7px;*/
+}
+.mejs-wp .mejs-playlists-playlist_tracks-itm:hover{
+    background: #B9B9B9;
+}
+.mejs-wp .mejs-playlists-playlist_tracks-itm.playing{
+    background: #818181;
+}
+.mejs-wp .mejs-playlists-playlist_tracks-title{
+    display: block;
+    width: 177px;
+    height: 100%;
+    line-height: inherit;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: default;
+}
+.mejs-wp .mejs-playlists-playlist_tracks-duration{
+    display:block;
+    width: 33px;
+    height: 100%;
+    line-height: inherit;
+    float: right;
+    cursor: default;
+}
+.mejs-wp .mejs-playlists-playlist_tracks-delete-lnk{
+    display:block;
+    float: right;
+    width:19px;
+    height:19px;
+    margin: 1px 0 0 0;
+    background: url(/resources/images/music/player/delete.png);
+}
+.mejs-wp .mejs-playlists-playlist_tracks-delete-lnk:hover{
+    background: url(/resources/images/music/player/delete-hover.png);
+}
+.mejs-wp .mejs-playlists-playlist_edit-title-inp{
+    width: 103px;
+    height: 20px;
+    padding: 0 25px;
+    border: 1px solid #A4A3A3;
+    margin: 5px 0 0 5px;
+}
+.mejs-wp .mejs-playlists-playlist_edit-save-btn{
+    float: right;
+    width: 16px;
+    height: 16px;
+    padding: 0px;
+    border: 0px;
+    margin: 8px 12px 0 0;
+    background: url(/resources/images/music/player/save.png);
+}
+.mejs-wp .mejs-playlists-playlist_tracks-no{
+    height: 197px;
+    margin: 1px 0 0 0;
+    padding: 0 5px 0 5px;
+    background: #A4A3A3;
+}
+.mejs-wp .mejs-playlists-playlist_tracks-add{
+    height: 197px;
+    margin: 1px 0 0 0;
+    padding: 0 5px 0 5px;
+    background: #C2C2C2;
+}
+.mejs-wp .mejs-playlists-content .mejs-playlists-playlist_tracks-inp{
+    width: 219px;
+    height: 20px;
+    padding: 0 5px;
+    margin: 5px 0 0 0;
+    border: 1px solid #6E6E6E;
+    color: #000;
+    line-height: 16px;
+    text-shadow: none;
+    background: url(/resources/images/music/bg.png) 0 -100px repeat-x #fff;
+}
+.mejs-wp .mejs-playlists-content .mejs-playlists-playlist_tracks-btn{
+    width: 81px;
+    padding: 0 0 0 0;
+    margin: 5px 5px 0 0;
+    border: 1px solid #6E6E6E;
+    color: #000;
+    line-height: 18px;
+    text-shadow: none;
+    background: url(/resources/images/music/bg.png) 0 -78px;
+}
+.mejs-wp .mejs-playlists-content .mejs-playlists-playlist_tracks-btn.press{
+    border-style: inset;
+    border-width: 1.5px;
+    line-height: 17px;
+}
+.cuselect.mejs-playlists-playlist_title-sel {
+    width: 156px;
+    margin: 5px 0 0 5px;
+}
+.cuselect.mejs-playlists-playlist_title-sel .cuselect-header{
+    border:1px solid #A4A3A3;
+    border-radius: 0px;
+    height: 20px;
+    font-size: inherit;
+    line-height: inherit;
+    background: url(/resources/images/music/bg.png) 0 -56px;
+}
+.cuselect.mejs-playlists-playlist_title-sel .cuselect-selected_option_caption{
+    padding: 0 0 0 25px;
+    line-height: 20px;
+}
+.cuselect.mejs-playlists-playlist_title-sel.open .cuselect-header{
+    background: #818181;
+}
+.cuselect.mejs-playlists-playlist_title-sel .cuselect-arrow:hover{
+    border-left: 0;
+    background: none;
+}
+.cuselect.mejs-playlists-playlist_title-sel .cuselect-lst{
+    padding: 5px 0;
+}
+.cuselect.mejs-playlists-playlist_title-sel .cuselect-itm{
+    width: 104px;
+    height: 27px;
+    padding: 0 25px 0 25px;
+    line-height: 25px;
+}
+.cuselect.mejs-playlists-playlist_title-sel .cuselect-itm:first-child{
+}
+.cuselect.mejs-playlists-playlist_title-sel .cuselect-itm.active{
+    background: #E6E6E6;
+}
+.cuselect.mejs-playlists-playlist_title-sel .cuselect-wrap:hover .cuselect-itm.active{
+    background: none
+}
+.cuselect.mejs-playlists-playlist_title-sel .cuselect-wrap:hover .cuselect-itm:hover{
+    background: #E6E6E6;
+}
+.cuselect.mejs-playlists-playlist_title-sel .cuselect-corner-top-left,
+.cuselect.mejs-playlists-playlist_title-sel .cuselect-corner-top-right,
+.cuselect.mejs-playlists-playlist_title-sel .cuselect-corner-bottom-left,
+.cuselect.mejs-playlists-playlist_title-sel .cuselect-corner-bottom-right,
+.cuselect.mejs-playlists-playlist_title-sel .cuselect-border-top,
+.cuselect.mejs-playlists-playlist_title-sel .cuselect-border-bottom,
+.cuselect.mejs-playlists-playlist_title-sel .cuselect-border-left,
+.cuselect.mejs-playlists-playlist_title-sel .cuselect-border-right{
+    background: #3B3B3B;
+}
+.cuselect.mejs-playlists-playlist_title-sel .cuselect-triangle-top{
+    position: relative;
+    height: 7px;
+}
+.cuselect.mejs-playlists-playlist_title-sel .cuselect-triangle-top-spn{
+    position: absolute;
+    top: 1px;
+    left: 73px;
+    display: block;
+    width: 12px;
+    height: 7px;
+    background: url(/resources/images/music/player/playlist-menu-top-triangle.png);    
+}
+
+.cumenu.mejs-playlists-playlist_edit {
+}
+.cumenu.mejs-playlists-playlist_edit .cumenu-inside{
+    width: 30px;
+    margin: 5px 0 0 84px;
+}
+.cumenu.mejs-playlists-playlist_edit .cumenu-header{
+    border:1px solid transparent;
+    border-radius: 0px;
+    width: 28px;
+    height: 20px;
+    font-size: inherit;
+    line-height: inherit;
+    background: none;
+}
+.cumenu.mejs-playlists-playlist_edit.open .cumenu-header{
+    background: #818181;
+    border:1px solid #A4A3A3;
+}
+.cumenu.mejs-playlists-playlist_edit .cumenu-active_option_caption{
+    padding: 0 0 0 0;
+    margin: 2px 0 0 1px;
+    width: 16px;
+    height: 16px;
+    background: url(/resources/images/music/icones.png) -128px 0;
+}
+.cumenu.open.mejs-playlists-playlist_edit .cumenu-active_option_caption{
+    background: url(/resources/images/music/icones.png) -144px 0;
+}
+.cumenu.mejs-playlists-playlist_edit .cumenu-arrow{
+    margin:0 0 0 -7px;
+}
+.cumenu.mejs-playlists-playlist_edit .cumenu-arrow:hover{
+    border-left: 0;
+    background: none;
+}
+.cumenu.mejs-playlists-playlist_edit .cumenu-arrow-spn{
+    margin:2px 0 0 4px;
+}
+.cumenu.open.mejs-playlists-playlist_edit .cumenu-arrow-spn{
+    background: url(/resources/images/music/icones.png) -112px 0;
+}
+.cumenu.mejs-playlists-playlist_edit .cumenu-wrap{
+    left: -64px;
+}
+.cumenu.mejs-playlists-playlist_edit .cuselect-lst{
+    padding: 5px 0;
+}
+.cumenu.mejs-playlists-playlist_edit .cumenu-itm{
+}
+.cumenu.mejs-playlists-playlist_edit .cumenu-itm:first-child{
+}
+.cumenu.mejs-playlists-playlist_edit .cumenu-itm.active{
+    background: #E6E6E6;
+}
+.cumenu.mejs-playlists-playlist_edit .cumenu-wrap:hover .cumenu-itm.active{
+    background: none
+}
+.cumenu.mejs-playlists-playlist_edit .cumenu-wrap:hover .cumenu-itm:hover{
+    background: #E6E6E6;
+}
+.cumenu.mejs-playlists-playlist_edit .cumenu-lnk{
+    width: 104px;
+    height: 27px;
+    padding: 0 25px 0 25px;
+    line-height: 25px;
+    color: #000;
+}
+.cumenu.mejs-playlists-playlist_edit .cumenu-lnk:hover{
+    text-decoration: none;
+}
+.cumenu.mejs-playlists-playlist_edit .cumenu-corner-top-left,
+.cumenu.mejs-playlists-playlist_edit .cumenu-corner-top-right,
+.cumenu.mejs-playlists-playlist_edit .cumenu-corner-bottom-left,
+.cumenu.mejs-playlists-playlist_edit .cumenu-corner-bottom-right,
+.cumenu.mejs-playlists-playlist_edit .cumenu-border-top,
+.cumenu.mejs-playlists-playlist_edit .cumenu-border-bottom,
+.cumenu.mejs-playlists-playlist_edit .cumenu-border-left,
+.cumenu.mejs-playlists-playlist_edit .cumenu-border-right{
+    background: #3B3B3B;
+}
+.cumenu.mejs-playlists-playlist_edit .cumenu-triangle-top{
+    position: relative;
+    height: 7px;
+}
+.cumenu.mejs-playlists-playlist_edit .cumenu-triangle-top-spn{
+    position: absolute;
+    top: 1px;
+    left: 73px;
+    display: block;
+    width: 12px;
+    height: 7px;
+    background: url(/resources/images/music/player/playlist-menu-top-triangle.png);    
+}
+/* MEJS-WP-2 */
+.mejs-wp-2.mejs-container {
+    background: none repeat scroll 0 0 transparent;
+    font-family: Helvetica,Arial;
+    position: relative;
+    text-align: left;
+    vertical-align: top;
+}
+.mejs-wp-2.mejs-container:after {    content        : ".";    visibility    : hidden;    display        : block;    height        : 0;    clear        : both;}
+/* Start: CONTROL BAR */
+.mejs-wp-2 .mejs-controls {
+    position: static;
+    background: none;
+    list-style-type: none;
+    margin: 0;
+    padding: 6px 0 0 0;
+    bottom: 0;
+    left: 0;
+    background: none;
+    height: 36px;
+    width: 518px;
+}
+.mejs-wp-2 .mejs-controls  div {/* для сброса */
+    list-style-type: none;
+    background-image: none;
+    display: block;
+    float: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    height: auto;
+    font-size: 11px;
+    line-height: 16px;
+    background: 0;
+    font-family: Helvetica, Arial;
+    border: 0;
+}
+.mejs-wp-2 .mejs-controls > div{
+    float: left;
+}
+.mejs-wp-2 .mejs-controls .mejs-controls-inside-left{
+    width: 48px;
+}
+.mejs-wp-2 .mejs-controls .mejs-controls-inside-center{
+    width: 424px;
+}
+.mejs-wp-2 .mejs-controls .mejs-controls-inside-right{
+    width: 46px;
+}
+.mejs-wp-2 .mejs-controls .mejs-lyrics{
+    display: none;
+    width: 100%;
+    margin: 10px 0;
+    text-align: center;
+}
+.mejs-wp-2 .mejs-controls .mejs-lyrics.open{
+    display: block;
+}
+.mejs-wp-2 .mejs-controls .mejs-button{
+    float:left;
+    height: 20px;
+    width: 20px;
+}
+.mejs-wp-2 .mejs-controls .mejs-button button,
+.mejs-wp-2 .mejs-controls .mejs-button a,
+.mejs-wp-2 .mejs-controls .mejs-button span{
+    cursor: pointer;
+    font-size: 0;
+    line-height: 0;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    display: block;
+    height: 20px;
+    width: 20px;
+    background: transparent url(/resources/images/music/player/wp-player-2_1.png) no-repeat;
+}
+/* :focus for accessibility */
+.mejs-wp-2 .mejs-controls .mejs-button button:focus {
+    outline: solid 0px yellow;
+}
+
+/* End: CONTROL BAR */
+
+/* Start: Time (current / duration) */
+.mejs-wp-2 .mejs-controls .mejs-time {
+    color: #000;
+    display: block;
+    height: auto;
+    width: 28px;
+    overflow: hidden;
+    text-align: left;
+    padding: 2px 0 0 0;
+    float: left;
+}
+.mejs-wp-2 .mejs-controls .mejs-time span {
+    font-size: 10px;
+    font-family: Helvetica, Arial;
+    color: #777777;
+    line-height: 17px;
+    display: block;
+    float: none;
+    margin: 0;
+    width: auto;
+}
+/* End: Time (current / duration) */
+
+
+/* Start: Play/pause */
+.mejs-wp-2 .mejs-controls .mejs-playpause-button {
+    margin-left: 1px;
+}
+.mejs-wp-2 .mejs-controls .mejs-play button {
+    background-position:0 0;
+}
+.mejs-wp-2 .mejs-controls .mejs-pause button {
+    background-position:0 -20px;
+}
+/* End: Play/pause */
+
+/* Start: Progress bar */
+.mejs-wp-2 .mejs-controls div.mejs-time-rail {
+    width: 364px;
+    height: 5px;
+    padding-top: 0;
+    margin: 12px 0 0 0;
+    float: left;
+    position: relative;
+}
+.mejs-wp-2 .mejs-controls .mejs-time-rail span {
+    display: block;
+    position: absolute;
+    height: 1px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    cursor: pointer;
+}
+.mejs-wp-2 .mejs-controls .mejs-time-rail .mejs-time-total {
+    width: 100%;
+    margin: 0;
+    background: #4A69AD;
+    opacity:0.6;
+}
+.mejs-wp-2 .mejs-controls .mejs-time-rail .mejs-time-loaded {
+    background: #4A69AD;
+    width: 0;
+}
+.mejs-wp-2 .mejs-controls .mejs-time-rail .mejs-time-current {
+    width: 0;
+    background: #4A69AD;
+}
+
+.mejs-wp-2 .mejs-controls .mejs-time-rail .mejs-time-handle {
+    display: block;
+    position: absolute;
+    margin: 0;
+    width: 7px;
+    height: 7px;
+    background: #4A69AD;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    cursor: pointer;
+    border: 0;
+    top: -3px;
+    text-align: center;
+}
+
+.mejs-wp-2 .mejs-controls .mejs-time-rail .mejs-time-float {
+    position: absolute;
+    display: none;
+    background: #eee;
+    width: 36px;
+    height: 17px;
+    border: solid 1px #333;
+    top: -26px;
+    margin-left: -18px;
+    text-align: center;
+    color: #111;
+}
+
+.mejs-wp-2 .mejs-controls .mejs-time-rail .mejs-time-float-current {
+    margin: 2px;
+    width: 30px;
+    display: block;
+    text-align: center;
+    left: 0;
+}
+.mejs-wp-2 .mejs-controls .mejs-time-rail .mejs-time-float-corner {
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    line-height: 0;
+    border: solid 5px #eee;
+    border-color: #eee transparent transparent transparent;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    top: 15px;
+    left: 13px;
+
+}
+/* End: Progress bar */
+
+/* Start: Mute/Volume */
+
+/* horizontal version */
+
+.mejs-wp-2 .mejs-controls div.mejs-horizontal-volume-slider {
+    height: 5px;
+    width: 40px;
+    position: relative;
+    margin: 12px 0 0 20px;
+    float: left;
+}
+
+.mejs-wp-2 .mejs-controls .mejs-horizontal-volume-slider .mejs-horizontal-volume-total {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 40px;
+    height: 1px;
+    margin: 0;
+    padding: 0;
+    font-size: 1px;
+    
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;    
+
+    background: #4A69AD;
+}
+
+.mejs-wp-2 .mejs-controls .mejs-horizontal-volume-slider .mejs-horizontal-volume-current {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 1px;
+    margin: 0;
+    padding: 0;
+    font-size: 1px;
+
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+
+    background: #4A69AD;
+
+}
+
+
+.mejs-wp-2 .mejs-controls .mejs-horizontal-volume-slider .mejs-horizontal-volume-handle {
+    display: block;
+    width: 7px;
+    height: 7px;
+    position: absolute;    
+    top: -3px;
+
+    background: #4A69AD;
+}
+
+/* End: Mute/Volume */
+
+/* Start: Loop */
+.mejs-wp-2 .mejs-controls .mejs-loop-off button{
+    background-position: 0 -40px;
+}
+.mejs-wp-2 .mejs-controls .mejs-loop-on button {
+    background-position: 0 -60px;
+}
+/* End: Loop */
+
+/* Start: Title */
+.mejs-wp-2 .mejs-controls .mejs-title {
+    color:#2B587A;
+    height: 16px;
+    width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.mejs-wp-2 .mejs-controls .mejs-title a{
+    
+}
+/* End: Title */
+/* Start: playlist_type */
+.mejs-wp-2 .mejs-controls .mejs-playlist_type {
+    display: none;
+    float: right;
+    height: 16px;
+    width: 150px;
+    color: blue;
+    font-style: italic;
+    line-height: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.mejs-wp-2 .mejs-controls .mejs-playlist_type .mejs-native,
+.mejs-wp-2 .mejs-controls .mejs-playlist_type .mejs-container{
+    display: none;
+}
+.mejs-wp-2.mejs-is_native .mejs-controls .mejs-playlist_type .mejs-native{
+    display: inline;
+}
+.mejs-wp-2 .mejs-controls .mejs-title a{
+    color: #3B5998;
+    font-size: 12px;
+    line-height: 16px;
+    text-decoration: none;
+    font-weight: bold;
+}
+/* End: Title */
+/* Start: line */
+.mejs-wp-2 .mejs-controls .mejs-line{
+    display:none;
+    margin-top:12px;
+    width:100%;
+    border-top: 1px dashed #D8DFEA;
+    height: 5px;
+}
+/* End: Line */
+
+/* Start: Add */
+.mejs-wp-2 .mejs-controls .mejs-add-button{
+    visibility: hidden;
+    margin-left: 1px;
+}
+.mejs-wp-2 .mejs-controls:hover .mejs-add-button{
+    visibility: visible;
+}
+.mejs-wp-2 .mejs-controls .mejs-add-button button{
+    background-position: 0 -100px;
+}
+.mejs-wp-2 .mejs-controls .mejs-add-button button:hover {
+    background-position: 0 -80px;
+}
+.mejs-wp-2 .mejs-controls .mejs-add-button.mejs-added button {
+    background-position: 0 -80px;
+}
+/* End: Add */
+/* Start: Delete */
+.mejs-wp-2 .mejs-controls .mejs-delete-button{
+    margin-left: 1px;
+}
+.mejs-wp-2 .mejs-controls .mejs-delete-button button{
+    background: url("/resources/images/music/player/delete.png") 0 center;
+}
+/* End: Delete */
+/* Start Like */
+.mejs-wp-2 .mejs-controls .mejs-likes-button .like-up-icon{
+    background-position: 0 -160px;
+}
+.mejs-wp-2 .mejs-controls .mejs-likes-button .like-up-icon:hover{
+    background-position: 0 -180px;
+}
+.mejs-wp-2 .mejs-controls .mejs-likes-button .like-down-icon{
+    background-position: 0 -180px;
+}
+/* End Like */
+/* Start Share */
+.mejs-wp-2 .mejs-controls .mejs-share-button{
+    margin-left: 1px;
+}
+.mejs-wp-2 .mejs-controls .mejs-share-button button{
+    background-position: 0 -220px;
+}
+.mejs-wp-2 .mejs-controls .mejs-share-button button:hover {
+    background-position: 0 -200px;
+}
+/* End Share */
+/* Start Wp */
+.mejs-wp-2 .mejs-controls .mejs-wp-button{
+    margin-left: 1px;
+}
+.mejs-wp-2 .mejs-controls .mejs-wp-button a{
+    background-position: 0 -260px;
+}
+.mejs-wp-2 .mejs-controls .mejs-wp-button a:hover {
+    background-position: 0 -240px;
+}
+/* End Wp */
+/* Start Video */
+.mejs-wp-2 .mejs-controls .mejs-video-button{
+    margin-left: -20px;
+}
+.mejs-wp-2 .mejs-controls .mejs-video-button a{
+    background-position: 0 -320px;
+}
+.mejs-wp-2 .mejs-controls .mejs-video-button a:hover {
+    background-position: 0 -320px;
+}
+/* End Video */
+/* make active start */
+.mejs-wp-2 .mejs-controls .mejs-loop-button button,
+.mejs-wp-2 .mejs-controls .mejs-time-rail,
+.mejs-wp-2 .mejs-controls .mejs-horizontal-volume-slider {
+    display: none;
+}
+ .mejs-wp-2 .mejs-controls .mejs-line{
+    display:block;
+}
+.mejs-wp-2.mejs-active .mejs-controls .mejs-loop-button button,
+.mejs-wp-2.mejs-active .mejs-controls .mejs-time-rail,
+.mejs-wp-2.mejs-active .mejs-controls .mejs-horizontal-volume-slider {
+    display: block;
+}
+.mejs-wp-2.mejs-active .mejs-line{
+    display:none;
+}
+/* если не успел измениться класс */
+.mejs-wp-2 .mejs-controls .mejs-pause button{
+    background-position:0 0;
+}
+.mejs-wp-2.mejs-active .mejs-controls .mejs-pause button{
+    background-position:0 -20px;
+}
+/* make active end */
+/* audio_album */
+div.audio-album-tracks .mejs-wp-2 .mejs-controls{
+    width: 542px;
+    margin:0 0 0 -20px;
+}
+div.audio-album-tracks .mejs-wp-2 .mejs-controls{
+    width: 555px;
+    margin:0 -20px 0 -20px;
+}
+div.audio-album-tracks .mejs-wp-2 .mejs-controls .mejs-controls-inside-center{
+    width: 416px;
+}
+div.audio-album-tracks .mejs-wp-2 .mejs-controls div.mejs-time-rail {
+    width: 356px;
+}
+
+div.audio-album-tracks .mejs-wp-2 .mejs-controls .mejs-controls-inside-right{
+    width: 91px;
+}
+div.audio-album-tracks .mejs-wp-2 .mejs-controls .mejs-tag-button{
+    visibility: hidden;
+    margin-left: 1px;
+}
+div.audio-album-tracks .mejs-wp-2 .mejs-controls:hover .mejs-tag-button{
+    visibility: visible;
+}
+div.audio-album-tracks .mejs-wp-2 .mejs-controls .mejs-tag-button button{
+    background-position: 0 -300px;
+}
+div.audio-album-tracks .mejs-wp-2 .mejs-controls .mejs-tag-button button:hover {
+    background-position: 0 -280px;
+}
+div.audio-album-tracks .mejs-wp-2 .mejs-controls .mejs-tag-button.mejs-open_html_code button {
+    background-position: 0 -280px;
+}
+/* outer-player */
+.outer-player .mejs-wp-2 .mejs-controls{
+    width: 527px;
+}
+.outer-player .mejs-wp-2 .mejs-controls .mejs-controls-inside-center{
+    width: 405px;
+}
+.outer-player .mejs-wp-2 .mejs-controls div.mejs-time-rail {
+    width: 345px;
+}
+.outer-player .mejs-wp-2 .mejs-controls .mejs-controls-inside-right{
+    width: 74px;
+}
+.outer-player .mejs-wp-2 .mejs-controls .mejs-share-button{
+    margin-left: 5px;
+}
+/* кастомный селект */
+.cuselect {
+	width: 200px;
+	position: relative;
+}
+.cuselect .cuselect-lst{
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+	list-style: none;
+}
+.cuselect .cuselect-wrap{
+	display: none;
+	position: absolute;
+	/*box-shadow: 0 3px 7px #868686;*/
+	z-index: 10;
+}
+.cuselect .cuselect-cnt{
+	background:#fff;
+	width: 154px;
+	min-width: 154px;
+	height: 10px;
+	min-height: 10px;
+}
+.cuselect .cuselect-corner-top-left,
+.cuselect .cuselect-corner-top-right,
+.cuselect .cuselect-corner-bottom-left,
+.cuselect .cuselect-corner-bottom-right{
+	width: 1px;
+	min-width: 1px;
+	height: 1px;
+	min-height: 1px;
+}
+.cuselect .cuselect-corner-top-left,
+.cuselect .cuselect-corner-top-right,
+.cuselect .cuselect-corner-bottom-left,
+.cuselect .cuselect-corner-bottom-right,
+.cuselect .cuselect-border-top,
+.cuselect .cuselect-border-bottom,
+.cuselect .cuselect-border-left,
+.cuselect .cuselect-border-right{
+	background: #9B9B9B;
+}
+.cuselect.open .cuselect-wrap{
+	display: block;
+}
+.cuselect .cuselect-header{
+	border:1px solid #9B9B9B;
+	border-radius: 2px;
+	height: 18px;
+	font-size: 14px;
+	line-height: 16px;
+}
+.cuselect .cuselect-selected_option_caption{
+	padding: 0 0 0 5px;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.cuselect .cuselect-arrow{
+	float: right;
+	width: 18px;
+	height: 100%;
+}
+.cuselect .cuselect-arrow:hover{
+	border-left: 1px solid #9B9B9B;
+	background: url(/resources/images/music/bg.png) 0 1px;
+}
+.cuselect .cuselect-arrow-spn{
+	display: block;
+	width: 16px;
+	height: 16px;
+	margin: 2px 0 0 2px;
+	background: url(/resources/images/music/icones.png) -96px 0;
+}
+.cuselect .cuselect-itm{
+	width: 188px;
+	padding: 0 5px 0 5px;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.cuselect .cuselect-itm.active{
+	background: #3399FF;
+}
+.cuselect .cuselect-wrap:hover .cuselect-itm.active{
+	background: none
+}
+.cuselect .cuselect-wrap:hover .cuselect-itm:hover{
+	background: #3399FF;
+}
+/* кастомное меню */
+.cumenu {
+	display: inline-block;
+	vertical-align:top;
+}
+.cumenu .cumenu-inside{
+	width: 200px;
+	position: relative;
+}
+.cumenu .cumenu-wrap{
+	display: none;
+	position: absolute;
+	/*box-shadow: 0 3px 7px #868686;*/
+	z-index: 10;
+}
+.cumenu .cumenu-cnt{
+	background:#fff;
+	width: 154px;
+	min-width: 154px;
+	height: 10px;
+	min-height: 10px;
+}
+.cumenu .cumenu-corner-top-left,
+.cumenu .cumenu-corner-top-right,
+.cumenu .cumenu-corner-bottom-left,
+.cumenu .cumenu-corner-bottom-right{
+	width: 1px;
+	min-width: 1px;
+	height: 1px;
+	min-height: 1px;
+}
+.cumenu .cumenu-corner-top-left,
+.cumenu .cumenu-corner-top-right,
+.cumenu .cumenu-corner-bottom-left,
+.cumenu .cumenu-corner-bottom-right,
+.cumenu .cumenu-border-top,
+.cumenu .cumenu-border-bottom,
+.cumenu .cumenu-border-left,
+.cumenu .cumenu-border-right{
+	background: #9B9B9B;
+}
+.cumenu .cumenu-lst{
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+	list-style: none;
+}
+.cumenu.open .cumenu-wrap{
+	display: block;
+}
+.cumenu .cumenu-header{
+	border:1px solid #9B9B9B;
+	border-radius: 2px;
+	height: 18px;
+	font-size: 14px;
+	line-height: 16px;
+	background: #fff;
+}
+.cumenu.open .cumenu-header{
+	background: #fff;
+}
+.cumenu .cumenu-active_option_caption{
+	padding: 0 0 0 5px;
+	overflow: hidden;
+    text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.cumenu .cumenu-arrow{
+	float: right;
+	width: 18px;
+	height: 100%;
+}
+.cumenu .cumenu-arrow:hover{
+	border-left: 1px solid #9B9B9B;
+	background: url(/resources/images/music/bg.png) 0 1px;
+}
+.cumenu .cumenu-arrow-spn{
+	display: block;
+	width: 16px;
+	height: 16px;
+	margin: 2px 0 0 2px;
+	background: url(/resources/images/music/icones.png) -96px 0;
+}
+.cumenu .cumenu-itm{
+	width: 100%;
+}
+.cumenu .cumenu-lnk{
+	display: block;
+	width: 188px;
+	padding: 0 5px 0 5px;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.cumenu .cumenu-itm.active{
+	background: #3399FF;
+}
+.cumenu .cumenu-wrap:hover .cumenu-itm.active{
+	background: none
+}
+.cumenu .cumenu-wrap:hover .cumenu-itm:hover{
+	background: #3399FF;
+}
+
+div.input-title-holder {
+  position: relative;
+  height: 25px;
+}
+label.input-title {
+  position: relative;
+  display: block;
+  color: #000;
+  font-size: 12px;
+  line-height: 18px;
+  padding: 20px 0 5px 0;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+}
+label.input-title-grey {
+  height: 20px;
+  padding: 4px 0 0 5px;
+  border:1px solid #9b9b9b;
+  border-bottom: 0px;
+  color: #000;
+  font-size: 12px;
+  line-height: 16px;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  background:url(/images/textarea_bg_grey.jpg) repeat-x #e8e8e8;
+}
+label.input-title-grey-half {
+  width: 247px;
+}
+label.input-title-grey-left {
+  float: left;
+}
+label.input-title-grey-right {
+  float: right;
+}
+span.input-tip {
+  position:relative;
+  /*margin:5px 0 0 0;
+  display:block;
+  color:#979696;
+  font-size:11px;
+  line-height: 16px;*/
+  color:#979696;
+}
+div.input-string-holder {
+    position: relative;
+    height: 26px;
+    margin:0 0 10px 0;
+}
+div.input-string-holder .ish-left-side {
+  position:relative;
+  height: 26px;
+  width: 254px;
+  float: left;
+}
+div.input-string-holder .ish-right-side {
+  position:relative;
+  height: 26px;
+  width: 254px;
+  float: right;
+}
+input.input-string {
+  position:relative;
+  margin:0 0 10px 0;
+  width:506px;
+  display:block;
+  padding:5px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size:12px;
+  color:#000;
+  border:1px solid #9b9b9b;
+  outline: none;
+  background:url(/images/textarea_bg.jpg) repeat-x #fff;
+}
+input.input-string-no-top-border {
+    background: #fff;
+    border-top: 1px solid #d3d3d3;
+}
+input.input-string-no-top-border:focus {
+    background: #fff;
+    border: 1px solid #ffa200;
+}
+input.input-string-half {
+  width: 254px;
+}
